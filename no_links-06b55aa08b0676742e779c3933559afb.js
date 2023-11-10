@@ -1,0 +1,1 @@
+document.querySelector(".mobile_topbar_content ul li:nth-child(2) a").removeAttribute('href')
