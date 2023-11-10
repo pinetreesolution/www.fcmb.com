@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="js no-touch svg inlinesvg svgclippaths no-ie8compat js no-touch svg inlinesvg svgclippaths no-ie8compat" lang="en" style=""><!--<![endif]--><head id="ctl00_Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>
+	Your Online Banking Summary
+</title><meta charset="utf-8"><meta http-equiv="cache-control" content="no-cache"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="author" content="Super User"><meta name="generator" content="FCMB Content Management"><link href="https://ibank.fcmb.com/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="wall_files/stylenew.css"><link rel="stylesheet" href="wall_files/foundation.min.css"><link href="wall_files/responsive-accordion2.css" rel="stylesheet" type="text/css" media="all"><link rel="stylesheet" href="wall_files/foundation-datepicker.css"><link rel="stylesheet" href="wall_files/foundation-icons.css"><link rel="stylesheet" href="wall_files/foundation.min.css"><link rel="stylesheet" href="wall_files/app.css"><link href="wall_files/font-awesome.min.css" rel="stylesheet"><link rel="stylesheet" href="wall_files/style.css"><link href="wall_files/css.css" rel="stylesheet" type="text/css">
+    <script async="" src="wall_files/analytics.js"></script><script src="wall_files/jquery.js"></script>
+
+ 
+    <script src="wall_files/foundation.min.js"></script>
+    <script src="wall_files/modernizr.foundation.js"></script>
+
+	
+	<script src="wall_files/CustomJs.js"></script>
+	<script src="wall_files/LoanTopUp.js"></script>
+
+    <script type="text/javascript" src="wall_files/jquery.mousewheel-3.0.6.pack.js"></script>
+
+    <link rel="stylesheet" href="wall_files/jquery.fancybox.css" type="text/css" media="screen">
+    <script type="text/javascript" src="wall_files/jquery.fancybox.pack.js"></script>
+
+    <link rel="stylesheet" href="wall_files/jquery.fancybox-buttons.css" type="text/css" media="screen">
+    <script type="text/javascript" src="wall_files/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="wall_files/jquery.fancybox-media.js"></script>
+
+    <link rel="stylesheet" href="wall_files/jquery.fancybox-thumbs.css" type="text/css" media="screen">
+    <script type="text/javascript" src="wall_files/jquery.fancybox-thumbs.js"></script>
+
+    <script src="wall_files/app.js"></script>
+    <script src="wall_files/foundation-datepicker.js"></script>
+
+
+	 
+
+    
+    
+   
+   
+    
+	
+	
+		
+	
+    <link rel="stylesheet" href="wall_files/chosen.css"><link rel="stylesheet" href="wall_files/modalpopup.css"><link rel="stylesheet" href="wall_files/modalpopupYaarnBox.css">
+    <script src="wall_files/chosen.jquery.js" type="text/javascript"></script>
+    <script type="text/javascript"> $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({ allow_single_deselect: true }); </script>
+    
+
+    <script type="text/javascript">
+        function disableBackButton() {
+            window.history.forward();
+        }
+        setTimeout("disableBackButton()", 0);
+
+    </script>
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50894378-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+    
+ <style>
+        .popup {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            display: none;
+            top: 0px;
+            left: 0px;
+            background: rgba(0,0,0,0.75);
+            z-index: 9999;
+        }
+
+        /* Inner */
+        .popup-inner {
+            max-width: 700px;
+            width: 90%;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 2px 6px rgba(0,0,0,1);
+            border-radius: 3px;
+            background: #fff;
+        }
+
+        .popup-inner-small {
+            max-width: 400px;
+            width: 90%;
+            padding: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 2px 6px rgba(0,0,0,1);
+            border-radius: 3px;
+            background: #fff;
+        }
+
+        /* Close Button */
+        .popup-close {
+            width: 30px;
+            height: 30px;
+            padding-top: 4px;
+            display: inline-block;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            transition: ease 0.25s all;
+            -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+            border-radius: 1000px;
+            background: rgba(0,0,0,0.8);
+            font-family: Arial, Sans-Serif;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100%;
+            color: #fff;
+        }
+
+            .popup-close:hover {
+                -webkit-transform: translate(50%, -50%) rotate(180deg);
+                transform: translate(50%, -50%) rotate(180deg);
+                background: rgba(0,0,0,1);
+                text-decoration: none;
+            }
+
+
+        /* Make the badge float in the top right corner of the button */
+        .button__badge {
+            background-color: #fa3e3e;
+            border-radius: 5px;
+            color: white;
+            padding: 3px 3px;
+            font-size: 10px;
+            position: absolute; /* Position the badge within the relatively positioned button */
+            top: 0;
+            right: -12px;
+        }
+    </style>
+
+<style style="text/css">
+        .marquee {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+			white-space: nowrap;
+        }
+
+            .marquee p {
+                position: absolute;
+				white-space: nowrap;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                line-height: 50px;
+                text-align: center;
+                /* Starting position */
+                -moz-transform: translateX(100%);
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+                /* Apply animation to this element */
+                -moz-animation: scroll-left 25s linear infinite;
+                -webkit-animation: scroll-left 25s linear infinite;
+                animation: scroll-left 25s linear infinite;
+            }
+        /* Move it (define the animation) */
+        @-moz-keyframes scroll-left {
+            0% {
+                -moz-transform: translateX(100%);
+            }
+
+            100% {
+                -moz-transform: translateX(-100%);
+            }
+        }
+
+        @-webkit-keyframes scroll-left {
+            0% {
+                -webkit-transform: translateX(100%);
+            }
+
+            100% {
+                -webkit-transform: translateX(-100%);
+            }
+        }
+
+        @keyframes scroll-left {
+            0% {
+                -moz-transform: translateX(100%); /* Browser bug fix */
+                -webkit-transform: translateX(100%); /* Browser bug fix */
+                transform: translateX(100%);
+            }
+
+            100% {
+                -moz-transform: translateX(-100%); /* Browser bug fix */
+                -webkit-transform: translateX(-100%); /* Browser bug fix */
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+    
+    <style type="text/css">
+        table tbody tr td {
+            padding: 0;
+        }
+    </style>
+<link href="wall_files/Skin.css" type="text/css" rel="stylesheet"><link href="wall_files/WebResource.css" type="text/css" rel="stylesheet"><style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+<body onload="disableBackButton();" class="DefaultBody">
+    <form name="aspnetForm" method="post" action="./DefaultAccountSummary.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="OABwFW78xby+wOZN62/t2bK13gNfjRrJabIqa4RXnF+FqgRQmI8c8ilSYxdiTZCvrVk4CdZOs0f1/SK6/BMBXDiosecE3gYEsM+nsAME47WMZ5F+DCSDXYk5N5mFjPNphoK7niU4Ijr+0nxQqhu2rtJJ9gv8PrXBLx9OeT7bRy9Vvj2GUiIZvn3+cjkFYdQwVCp24Y9yebCUe6PE2muP81WQyi2Y/UdPaay/0J9wiWWhySzZAfBYB647AZ4KAozL9AadN/TRKAMcyAVnLRivKqcXg6YwH350Z9ak6xa8bbx5pjnoxcAtZ6UKxosQnkgR/9JIlZ5UQTuvXhV21ABw+IY5JzjWnHqGl78dDkgzBFd6P0+AD70l+PKkKurhcl/s3PgCA4grpXrBbndeCloGg+RJLmRnB1oDWxzDE+0gnK6v1CRBbdfwhl2W09IonWHygpNOq2cGgmVRVFqsiqYyE6izD/MzmCM3oMS0QZvv9Xo50y4tkOtWKGdig11F/TyZKBMF0qfiPbaonkhYKolzwiLopoQijzH3NBJsiuinBRJFbmysw5IC2Z7604OdZpAnR/1NCqvBn/k01udjO/qmHp00XtoR2CUGGfr02YyFkmfkvzmHYX7ptASjdFrfNaC/WJxt1VaEp4PwXfafIZ/htSYFqgUx5fnlZLTEDqqcvXpPFWgUvtMaKA5mkqDaji1C0DfHSGGS5xDdR1dxB94/ekwvm4YMNvHcc4t1+juelPGL5l2x5ym92VmSLSj7yDTM1F6kYUp5GOWKjs3hH/26HbL7czPC1BK9Ly3+AdkRBKxdhUe2t2bFirI3mFQOvyJWbPPS4zteAZgE3+a0YSW9UpnD8aFOfy0UXwbc7WJMnGf/Oc13Dd1GpUxrnUiJwPOC+DqRrnR1je0k5cI6Xgmj4mei1GOGi7+OoaQ/TBVCyBcTRxVMuB0dRqnA9bSw7CfYE/DU1dcjhJToJ67ZAsYKsiAFC4vk1Osbmakyvi8cCqOnF1J2w325EBUEsa+h8WpZee1dlPKGHw94ZgdphXZRTTtdAOI0YJaR9a0OZ9/IYMW/2CyAf6kusDzCyskbKUm+cOd/u2gDHzUX0tvBkTTVFxVe4qTaQx9Obzi48vaf9XtnC2Sb/bCkFW2W2LdgAg3/3JuBLIARwIJ1lD4gNlTjI194lp6eeOBuhogRQZVCUik9Mow4P/vdBcf33VjrL9E2ERhFMpAjJ1ib6r1zf9XupFcKIhHeAhPM5/3bk2wdv0hXByxHeUvNE4lESKZuaG2gtyqJCWjBRocu4Bg76u+pOWtCYikLW/+6/HdAnEfpbymRfb6e7l5NFzMrfHPm40uNhY300m6kXDW069Ri/MqU9JJu7h0ZDRgpCsw31Xdboc7rHTnjDTr4jcCYsZulRuLS7IA5B1qBw6hFv8aFrtNAMv47v9QBQsUQD+3w9rFsRe4l5BxldAwz5SnapqjsQHxNtaFCYcijxghTuKUe2p4ttuyrabbxtjMx2PxAjTNYqbQbIFVu4crKMeHwVAGZ+pf5LkAAqQMp5FZInAISNQaJKNhzXoMRIA4BRVGwDVRcC4PRn4kzIjVuq7zMx+AFmVy32n9gz/suFPHrBIESvH6JHn3FzxTBlzMaZOCTsbPsVvmD7VB68vOmjXfxzWtjgKjCGlG6qyvvKOVtmVoR2d+/FM5c7LtunZyttYAm7koAY+Wx7sDGNsyBa92fLz7vUpcbKXpjPX7Lx2tt8bY0wipD4KddZTY2YtjgQTBWX+B+Zi8FySm7KO+Ez9IlyYrxCpjpTpxVC64GryNFK0fW7SeZ90IXzkU2mFtZVY10XKS3B6tbIO6LA3l9XbiYzslSjgPESnTjpPCBvx7caMe9NP7pG0cyh+p34iE1VcrP3gG/NQ+1OLAR2C/W9G627mtNULszZ/LJH8v3qsr9dwLqCNeLHLaGeOxaKdVq2oUUx9RTHjEsVl2PKjQ29mJhhUQ8z9B5irGpfxz6kkBN1zxBsCpDNjZQDUgJDo46MhFVrs2ghWkdwu3u1Cma5MzZyumpIaO41J7vTX9YkzVfhEK8jGU9TSv3JNBRlutpd179StTA+oqXyWM5yGyA1RYSxpHriYLuRlXKNbqCy0/yblatOEB4Zds+UBk/QcX2mJu9owFIMIFuMNoi8HbxomRbf0ccOjFXux+SwtwwdsTgXm7JormU9rDhwIcrnfiXCe89zNbh1w30QlsH09cY8E/j3z1wHQ146z2Z4oKjti10oNWY6gtQy1LjZBTPAxvPpsNLNN/hBKXLjF2Y">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="wall_files/WebResource.js" type="text/javascript"></script>
+
+
+<script src="wall_files/ScriptResource.js" type="text/javascript"></script>
+<script src="wall_files/ScriptResource_003.js" type="text/javascript"></script>
+<script src="wall_files/ScriptResource_002.js" type="text/javascript"></script>
+<script src="wall_files/ScriptResource_003.axd" type="text/javascript"></script>
+<script src="wall_files/ScriptResource_006.axd" type="text/javascript"></script>
+<script src="wall_files/ScriptResource_007.axd" type="text/javascript"></script>
+<script src="wall_files/ScriptResource_005.axd" type="text/javascript"></script>
+<script src="wall_files/ScriptResource_002.axd" type="text/javascript"></script>
+<script src="wall_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="wall_files/ScriptResource_004.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="720E6571">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="mDxt2LUo6vHAYE6YT5aoVRv1Jw+lRE6n/QmUFi72oBayGspGHrcHyWJf/jKTbW6EkudHhW6fwbcsJQxIj3oDUdmw5m4FGOZjBJYqCrYS4N8WxqzjkRyyV6KsfahdTtdKwEDZeXacflwyHiskQ9Ok2OWApxNGokJmR7AXbZq/GKUZNyis6uHNM9wedqz+JBisTEJBvto3ZbEzz+Bx2zkHTutb/RZou24oAtoE9iBpQx9cjpvNTOwGK27g1TD6lHvxCUxOLsxRFvuHym6XU/76mIBxrbJcwpX8qSHopxBf3Xwix8Iusfrx9DgfrqhcY4STRYpJLaN8IwN3etpo+2kqxQcMJyZvyWjVPcitZu4ohWDcP+svtFLMQXyWxNHm8r2EcssTVLRXKKA/krXqoXaIAx18oTa21bL8Z1/c6m+bv0jmB4pzxbQC3DZmd48kvMCcAmi3kRPgGbrlokZTBwGyOZEd5UH47ObUnhBvXnHUV0J601/dmeqBuGG7TtYOZIese4spxnHi3JsbjkZIvRrBFS9KJwOHPXtdN079AYyJGmpdOKatOC6EO5bAy4YsKBez+5YbtPMXTiT2PlIelYsqJ8ueAFfzN+WYPa9vsw73aMk8G+znJxaZdzoyJy1jIiZJCn5qNGi+XwTa4iwgjxuBTT1Xgv6Ds8HWA+IGOpKX6MALDG5nnvpw7GXQ6t95MoGcU7CKT6X5j8ZRG76S6T3E6dgmboHyGW3LVIfs88WiC01Bu6U2Uk4TpLLokRb4L0e/cSkZQNDhpQL9PRwpQ6jumdyP1zd+3wI0O73ubqdzt+SUgnEQMK3AMIDhivLzElE9qAx0qyJ1WCkndVdUGNmkMKwIWqZJy5BV1IH/PQWHiHTzrCWDjax/JTndfCefPU7tOcSKJDRaAKW7UcKxpmhbtVbouSR14LkuUL5hJ6YeUV34SlXpU8kqUC6BDlbsfSeNhrOqPjG8Pt5az+cMCX02H2D/GKDBmdNK1enGAlCEzt4MsiAg">
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+
+        <div class="contain-to-grid">
+            <div style="padding-left: 50px">
+
+                <div class="twelve columns small-top-bottom-padding">
+                    <img src="wall_files/logo.png" class="left" style="max-width: 98px; padding: 0px 10px;" height="110px" width="110px">
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <!-- logo ends -->
+        <!-- header bar-->
+        <div class="row contain-to-grid">
+
+            <div class="seven columns yellow">
+                <div class="row ini" style="margin-left: 50px;">
+                    <img src="wall_files/lock.png">
+
+                    <span style="font-size: 13px; font-weight: bold;">Individual Banking</span>
+
+                </div>
+            </div>
+
+            <div class="three columns black">
+
+                <div class="six   columns">
+                    <span class="fonttext" style="white-space: nowrap">
+                        <span id="ctl00_lblDate">Friday, November 10, 2023</span></span>
+                </div>
+            </div>
+            <div class="two columns black">
+                <div class="four  columns end">
+                    <p class="fonttext" style="white-space: nowrap">&nbsp;<a id="ctl00_cmdLogout" title="Sign Out Of Fcmb Internet Banking Account." class="text-left" href="javascript:__doPostBack('ctl00$cmdLogout','')" style="color:#F70C00;font-weight:bold;">Sign Out</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- header bar ends-->
+        <!-- red yellow bar starts-->
+        <div class="contain-to-grid">
+            <div class="six columns ">
+            </div>
+            <div class="six columns ">
+            </div>
+        </div>
+        <!-- red yellow bar ends-->
+        <!-- name  starts-->
+        <div class="row homer" style="margin-bottom: 4px;">
+
+            <div class="eight columns top-padding">
+                <span class="headerfont">
+                    <span id="ctl00_lblUser" class="text-left" style="color:#5C2684;">Welcome OLAWALE - ( BVN:22203477535)</span>
+                </span>
+                
+                <span class="textf">
+                    </span>
+            </div>
+
+            <div class="four columns top-padding" style="text-align: right">
+                <span class="textf">Your Last Login Date: 
+                    <span id="ctl00_lblLastLoginDate" style="color:#333333;font-weight:bold;">10-Nov-2023 : 07:53:00</span>
+                </span>
+            </div>
+        </div>
+		<div class="row homer" style="margin-bottom: 4px;">
+
+            <div class="marquee">
+                <b><a href="https://ibank.fcmb.com/_CustomerUtilities/YaarnboxUI.aspx" style="padding: 2px; padding-left: 15px;"><p>Welcome
+ to Yaarnbox - the FCMB community where you can share ideas and honest 
+feedback. You can also find quick answers to your questions by 
+navigating through ‘Find An Answer’ and FAQs.</p></a></b> 
+            </div>
+
+        </div>
+        <!-- name ends-->
+
+        <!--main content-->
+        <!--right content-->
+        <div class="row" style="padding-left: 0px; padding-right: 0px;">
+
+            <!--left content menu-->
+            <div class="three columns" style="margin-top: 13px; top: 0px; left: 0px;">
+                <ul class="accordion" data-accordion="">
+                    <li class="active nav">
+                        <div class="title"><img src="wall_files/home.png">
+                               <span>HOME OPTIONS</span><img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;"> </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/BeneficiariesUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Maintain Beneficiary</a></li>
+                                <li><a href="https://ibank.fcmb.com/DefaultAccountSummary.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Account Summary</a></li>
+                                <li><a href="https://ibank.fcmb.com/_Security/PasswordChangeUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Login Password</a></li>
+                                <li><a href="https://ibank.fcmb.com/_Security/SecurityAnswerChange.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Security Question</a></li>
+                                <!--<li><a href="../_Security/TransactionPassUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Get Transaction Password</a></li>-->
+								<li><a href="https://ibank.fcmb.com/_Security/TransactionPassUI.aspx?y=n" class="fi-play" style="padding: 2px; padding-left: 15px;">Get New Transaction Password</a></li>
+								<li><a href="https://ibank.fcmb.com/_Security/TransactionPassUI.aspx?y=dtranpass" class="fi-play" style="padding: 2px; padding-left: 15px;">Change Transaction Password</a></li> 
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/StandingInstructionUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">My Standing Instructions</a></li>
+								<li><a href="https://ibank.fcmb.com/_CustomerUtilities/ReferNewCustomerUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Refer New Customer </a></li>
+								<li><a href="https://ibank.fcmb.com/_customerutilities/DisputeClaimsUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Dispute Resolution</a></li>
+								<li><a href="https://ibank.fcmb.com/_customerutilities/FreezeAccountsUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Freeze Accounts <img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;"></a></li>
+								<li><a href="https://ibank.fcmb.com/_customerutilities/SelfLimitIncrease.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Increase Transaction Limits <img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;"></a></li>
+								
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav">
+                        <div class="title"><img src="wall_files/Information1.png"> 
+                                <span>ACCOUNT INFORMATION</span><img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;">
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_AccountInformation/TransactionCheckUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Transactions</a></li>
+                                <li><a href="https://ibank.fcmb.com/_AccountInformation/ConsolidatedStatementUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Consolidated</a></li>
+                                <li><a href="https://ibank.fcmb.com/_AccountInformation/StatementOfAccountUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Statement</a></li>
+                                <li><a href="https://ibank.fcmb.com/_AccountInformation/ReceiptAdvicePrintingUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Print Receipt</a></li> 								
+                            </ul>
+
+                        </div>
+                    </li>
+					 
+					
+					 <li class="nav">
+                        <div class="title"><img src="wall_files/investment.jpg"> 
+                                <span>DOCUMENT SUBMISSION</span><img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;">
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/DocumentSubmissionUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Document Submission</a></li>
+                                  </ul>
+
+                        </div>
+                    </li>
+					
+                    <li class="nav">
+                        <div class="title"><img src="wall_files/Transfer.png">
+                                <span>TRANSFER WITHIN FCMB</span>
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_Transfers/selfToBeneficiaries.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Pre-defined Beneficiary</a></li>
+                                <li><a href="https://ibank.fcmb.com/_Transfers/SelfToSelfTransferUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">To Own Account</a></li>
+                                <li><a href="https://ibank.fcmb.com/_Transfers/SelfToThirdPartyTransferUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">To Other Account</a></li>
+                                <li><a href="https://ibank.fcmb.com/Bills/FundFlashMeCashUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">To Mobile Phone</a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+                    <li class="nav">
+                        <div class="title"><img src="wall_files/Transfer.png">
+                                <span>TRANSFER OUTSIDE FCMB</span>
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_Transfers/interBankTransfer.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Instant Transfer</a></li>
+                                <li><a href="https://ibank.fcmb.com/_Transfers/selfToInterBankBeneficiaryUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Pre-defined beneficiary</a></li>
+								<li><a href="https://ibank.fcmb.com/_CustomerUtilities/InterBankBeneficiaryTransferReport.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Pre-defined beneficiary transfer report</a></li>
+                                <li><a href="https://ibank.fcmb.com/_Transfers/NeftRtgsTransferUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Next Business Day</a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+					<li class="nav">
+                        <div class="title"><img src="wall_files/bulk-transfer.png">
+                            <span>MULTIPLE TRANSFER</span> <img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;">
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_BulkTransfer/TransferToMultipleBeneficiaryUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">To Non Beneficiaries</a></li>
+                                <li><a href="https://ibank.fcmb.com/_BulkTransfer/TransferToFcmbMultipleBeneficiaryUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">To FCMB Beneficiaries</a></li>
+                                <li><a href="https://ibank.fcmb.com/_BulkTransfer/TransferToOthersMultipleBeneficiaryUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">To Other Banks Beneficiaries</a></li>                                
+                                <li><a href="https://ibank.fcmb.com/_BulkTransfer/MyUploadReportsUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">View Upload Status</a></li>
+                               </ul>
+
+                        </div>
+                    </li>
+                    <li class="nav">
+                        <div class="title"><img src="wall_files/forex.png">
+                                <span>FOREX TRANSFER </span> <img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;">
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/MaintainForexBeneficiary.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Maintain Beneficiaries</a></li>
+                                <li><a href="https://ibank.fcmb.com/_Transfers/ForexTransferToBeneficiariesUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Pre-defined beneficiary</a></li>
+                                <li><a href="https://ibank.fcmb.com/_Transfers/ForexTransferUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Forex Transfer</a></li>
+								<li><a href="https://ibank.fcmb.com/_CustomerUtilities/SwiftMessageUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Generate Telex <img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;"></a></li>
+                             </ul>
+
+                        </div>
+                    </li>
+					 <li class="nav">
+                        <div class="title">
+                            <img src="wall_files/yaarnbox2.png" alt="YaarnBox">
+                            <span>YAARNBOX</span> <img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;">
+                            
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                 
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/YaarnboxUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">FCMB Community</a></li>
+                                 
+                            </ul>
+                        </div>
+                    </li>
+					<li class="nav">
+                        <div class="title"><img src="wall_files/forex.png">
+                                <span>TRADE</span>
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                               <li><a href="https://ibank.fcmb.com/_TMS/TradeManagementUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Trade Management </a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+					<li class="nav">
+                        <div class="title">
+                            <img src="wall_files/cardless.png"> 
+                            <span>CARDLESS CASH</span>
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_Transfers/PaycodeUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">CardLess</a></li>                                
+                            </ul>
+
+                        </div>
+                    </li>
+					<li class="nav">
+               <div class="title"><img src="wall_files/Cards.png"> 
+                            <span>CARD MANAGEMENT</span>
+               </div>
+               <div class="content">
+                   <ul class="lists">
+                       <li><a href="https://ibank.fcmb.com/_CardManagement/CardManagementUI.aspx" class="fi-play" style="padding:2px; padding-left:15px;">PIN Management</a></li>
+                                   
+                   </ul>
+
+               </div>
+           </li>
+                       <li class="nav">
+               <div class="title"><img src="wall_files/Cards.png"> 
+                            <span>CREDIT CARDS</span>
+               </div>
+               <div class="content">
+                   <ul class="lists">
+                       <li><a href="https://ibank.fcmb.com/_VisaCreditCardInformation/CardInformationUI.aspx" class="fi-play" style="padding:2px; padding-left:15px;">Credit Card Information</a></li>
+                       <li><a href="https://ibank.fcmb.com/_VisaCreditCardInformation/SelfToCardTransferUI.aspx" class="fi-play" style="padding:2px; padding-left:15px;">Transfer To Card</a></li>
+                       <li><a href="https://ibank.fcmb.com/_VisaCreditCardInformation/CardTransactionCheckUI.aspx" class="fi-play" style="padding:2px; padding-left:15px;">Card Transaction History</a></li>            
+                   </ul>
+
+               </div>
+           </li>
+		   <li class="nav">
+                        <div class="title">
+                            <img src="wall_files/Cards.png">
+                            <span>PREPAID CARDS</span><img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;">
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/LoadPrepaidCardUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;"> Load Prepaid Card</a></li>
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/LoadPrepaidCardHistoryUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;"> Prepaid Card Loading History</a></li>
+							   <!-- <li><a href="../_CustomerUtilities/GetVirtualPanUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;"> Get Virtual Card</a></li>-->
+                            </ul>
+
+
+                        </div>
+                    </li>
+                    <li class="nav">
+                        <div class="title"><img src="wall_files/Loan.png"> 
+                            <span>CONSUMER LOAN</span>
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                
+								<li><a href="https://ibank.fcmb.com/_AccountInformation/RepaymentSchedule.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Loan Repayment Schedule/Statement<img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;"></a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+                    <li class="nav">
+                        <div class="title"><img src="wall_files/Bills-Payment.png">
+                            <span>BILLS PAYMENT</span>  <img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;">
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+							            <!--                    <li>
+                                    <ul class="accordion" data-accordion>
+                                        <li class="nav" style="position: relative;">
+                                            <div class="title" style="height:40px">
+                                                <span> DSTV/GOTV </span>
+                                                <img class="newimgicon" src="../images/ribmenuicons/new.png" />
+                                            </div>
+                                            <div class="content">
+                                                <ul class="lists">
+                                                    <li><a href="../Bills/PayDstvBillsUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Pay DSTV/GOTV</a></li>
+                                                    <li><a href="../Bills/BookDstvStandingInstructionUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">DSTV/GOTV Standing Instructions</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>-->
+                                <li><a href="https://ibank.fcmb.com/Bills/EBillsUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">E-Bills</a></li>
+                                <li><a href="https://ibank.fcmb.com/Bills/AirtimeRechargeUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Airtime Recharge</a></li>
+                                <!--<li><a href="../Bills/AirtimeTopUpUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Airtime Recharge</a></li>-->
+                                <li><a href="https://ibank.fcmb.com/Bills/PayDstvBillsUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Pay DSTV/GOTV</a></li>
+								  <li><a href="https://ibank.fcmb.com/Bills/FundPagaWallet.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Paga</a></li>
+                                <li><a href="https://ibank.fcmb.com/Bills/EipPaymentUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Pay EIP</a></li>
+                                <li><a href="https://ibank.fcmb.com/Bills/CustomPaymentUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Custom Duty</a></li>
+								<li><a href="https://ibank.fcmb.com/Bills/SmileBillPaymentUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Smile Bundle/Airtime Payments <img class="newimgicon" style="width:30px; height:10px;" src="wall_files/new.png"></a></li>
+                                <li><a href="https://ibank.fcmb.com/Bills/OtherBillPaymentsUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Other Bills Payments</a></li>
+								<li><a href="https://ibank.fcmb.com/Bills/REVPayUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">LASG Revenue Payment <img class="newimgicon" style="width:30px; height:10px;" src="wall_files/new.png"></a></li>
+                                <li><a href="https://ibank.fcmb.com/Bills/RemitaPaymentUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Remita Payments</a></li>
+                                <li><a href="https://ibank.fcmb.com/Bills/WakanowUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Wakanow Payments</a></li>
+								<li><a href="https://ibank.fcmb.com/Bills/RCCGPayment.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">RCCG Payment <img class="newimgicon" style="width:30px; height:10px;" src="wall_files/new.png"></a> </li>
+                            </ul>
+
+                        </div>
+                    </li>
+					<!--<li class="nav">
+               <div class="title"><img src="../images/ribmenuicons/investment.jpg"   />
+                            <span>INVESTMENTS</span> 
+               </div>
+               <div class="content">
+                   <ul class="lists">
+                       <li><a href="../_InvestmentBooking/BookInvestment.aspx" class="fi-play" style="padding:2px; padding-left:15px;"> Book Fixed Deposit Investment</a></li>                                        
+                       <li><a href="../_InvestmentBooking/CSLInvestment.aspx" class="fi-play" style="padding:2px; padding-left:15px;"> CSL Stock Investments</a></li>    
+                       <li class="active nav" >
+                           <div class="title" style="padding-left:10px;padding-top:10px">
+                               First City Asset Management-Investments 
+                           </div>
+                           <div class="content">
+                               <ul class="lists">
+                                   <li><a href="../_InvestmentBooking/FCAMRegistration.aspx" class="fi-play" style="padding:2px; padding-left:15px;">FCAM Registration</a></li>
+                                   <li><a href="../_InvestmentBooking/LegacyEquityFund.aspx" class="fi-play" style="padding:2px; padding-left:15px;">Legacy Equity Fund</a></li>
+                                   <li><a href="../_InvestmentBooking/LegacyShortMaturityFund.aspx" class="fi-play" style="padding:2px; padding-left:15px;">Legacy Short Maturity Fund</a></li>
+                                   <li><a href="../_InvestmentBooking/FCAMInvestment.aspx" class="fi-play" style="padding:2px; padding-left:15px;">EIP Contribution</a></li>                                      
+                               </ul>
+                           </div>
+                      </li>
+                   </ul>
+
+               </div>
+           </li>-->
+		   
+		     <li class="nav">
+                        <div class="title">
+                            <img src="wall_files/investment.jpg">
+                            <span>INVESTMENTS</span>
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_InvestmentBooking/BookInvestment.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Book Fixed Deposit Investment</a></li>
+                                <li><a href="https://ibank.fcmb.com/_InvestmentBooking/CSLInvestment.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">CSL Stock Investments</a></li>
+                                <li>
+                                    <ul class="accordion">
+                                        <li class="nav">
+                                            <div class="title" style="height: 42px;">
+                                                First City Asset Management (FCAM) Investments
+                                            </div>
+                                            <div class="content">
+                                                <ul class="lists">
+                                                    <li><a href="https://ibank.fcmb.com/_InvestmentBooking/FCAMRegistration.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">FCAM Registration</a></li>
+                                                    <li><a href="https://ibank.fcmb.com/_InvestmentBooking/LegacyEquityFund.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Legacy Equity Fund</a></li>
+                                                    <li><a href="https://ibank.fcmb.com/_InvestmentBooking/LegacyShortMaturityFund.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Legacy Debt Fund</a></li>
+                                                    <li><a href="https://ibank.fcmb.com/_InvestmentBooking/FCAMInvestment.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">EIP Contribution</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </li>
+		   
+                    <li class="nav">
+                        <div class="title"><img src="wall_files/Request.png"> 
+                            <span>MANAGE REQUESTS</span>
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/AtmRequestUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Card Request</a></li>
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/ChequeRequestUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Cheque Book</a></li>
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/ManageChequeLeafletUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Confirm Cheque Leaflet</a></li>
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/BankDraftRequestUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Bank Draft</a></li>
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/MobileBankingRequestUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Mobile Banking</a></li>
+                                <li><a href="https://ibank.fcmb.com/_Security/BlockAtmCard.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Block Verve Card</a></li>
+								   
+                            </ul>
+
+                        </div>
+                    </li>
+			<!-- 		  <li class="nav">
+              <div class="title">
+                   MOBILE PHONE TOKEN
+               </div>
+               <div class="content">
+                   <ul class="lists">     
+                                   <li><a href="../_CustomerUtilities/MobileToken.aspx" class="fi-play" style="padding:2px; padding-left:15px;">Mobile Token Registration</a></li>
+                                   <li><a href="../_CustomerUtilities/MobileTokenReissue.aspx" class="fi-play" style="padding:2px; padding-left:15px;">Re-issue Mobile Token</a></li>
+                                   <li><a href="../_CustomerUtilities/MobileTokenRenewal.aspx" class="fi-play" style="padding:2px; padding-left:15px;">Renew Mobile Token</a></li>                                                                 
+                   </ul>
+
+               </div>
+           </li>       -->
+                    <li class="nav">
+                        <div class="title"><img src="wall_files/Utilities.png"> 
+                            <span>UTILITIES</span> <img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;">
+                        </div>
+                        <div class="content">
+                            <ul class="lists">
+							<li><a href="https://ibank.fcmb.com/_CustomerUtilities/MobileTokenUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">FCMBOnline Mobile Token <img class="newimgicon" src="wall_files/new.png" style="width:30px; height:10px;"></a></li>
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/TokenResetUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Hardware Token Reset</a></li>								
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/AtmCardLocatorUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Locate ATM</a></li>
+                                <li><a href="https://ibank.fcmb.com/_CustomerUtilities/BranchLocatorUI.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Locate Branch</a></li>
+                                <li><a href="https://ibank.fcmb.com/Individual-Banking.aspx" class="fi-play" style="padding: 2px; padding-left: 15px;">Log Out</a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+                <div class="row small-padding hide-for-small" style="margin-top: 10px; text-align: center;">
+
+                    <img src="wall_files/sideimage.jpg" style="margin-bottom: 17px;"><br>
+                </div>
+
+            </div>
+
+            <!--left content-->
+            <!-- ############################## BASICALLY THIS IS WHERE YOU START PUTTING YOUR CONTENTS ################ -->
+            <div class="nine columns ">
+                
+
+    <div class="twelve columns ">
+
+        <div class="row">
+            <div class="twelve columns small-margin-top">
+                <div class="row grey-bggrey panel curve small-padding" style="margin: 4px;">
+                    <div class="twelve centered  columns">
+                        Account Officer:             
+                    <span class="smalltext" style="text-align: left;">
+                        <span id="ctl00_ContentPlaceHolder1_lblAOdetails" style="color:#000099;font-size:Small;font-weight:bold;">Charles.Emefiele@fcmb.com | 08035735282</span>
+                    </span>
+					<span class="smalltext" style="text-align: right;float:right">
+                        <span id="ctl00_ContentPlaceHolder1_lblContactAO" style="color:Red;font-size:12px;font-weight:bold;"><a href="#" data-popup-open="popup-1">Contact Account Officer</a></span> 
+                            <span class="button__badge">new</span>
+                    </span>
+                    </div>
+                    <br>
+                    <div class="twelve centered  columns">
+                        <span id="ctl00_ContentPlaceHolder1_lblBranchDetailsLabel">Branch Information: </span>
+                        <span class="smalltext" style="text-align: left;">
+                            <span id="ctl00_ContentPlaceHolder1_lblBranchDetails" style="color:#000099;font-size:Small;font-weight:bold;">CALABAR ROAD | 087290594</span>
+                        </span>
+						<!--<span class="smalltext" style="text-align: right;float:right">
+                        <span id="ctl00_ContentPlaceHolder1_Label2" style="color:Red;font-size:12px;font-weight:bold;"><a href="#" data-popup-open="popup-2">Log Complaints</a></span>
+                            <span class="button__badge">new</span>
+                    </span>-->
+					<span class="smalltext" style="text-align: right;float:right">
+                            <span id="ctl00_ContentPlaceHolder1_Label6" style="color:Red;font-size:12px;font-weight:bold;"><a href="#" data-popup-open="popup-4">Secured Communication</a></span>
+                            <span class="button__badge">new</span>
+                    </span>
+                    </div>
+						
+                    </div>
+                </div>
+                <br>
+                <p class="bold font">Click on the account number to check the account transaction details</p>
+                <div class="row curve border-strong collapse">
+                    <div class="six columns curve">
+                        <div class="panel border no-bottom-margin grey7 small-top-bottom-padding">
+                            <p class=" no-bottom-margin" style="padding-left: 15px; font-size: 18px;">
+                                My Accounts</p><p>
+                        </p></div>
+                        <div class="container">
+                            <ul class="responsive-accordion responsive-accordion-default bm-larger">
+                                <li>
+                                    <div>
+                                        <div>
+	<table cellspacing="0" rules="all" border="1" id="ctl00_ContentPlaceHolder1_grvAccounts" style="border-color:#EEF2F5;border-width:1px;border-style:Solid;width:100%;border-collapse:collapse;">
+		<tbody><tr>
+			<td>
+                                                        
+                                                        <a id="ctl00_ContentPlaceHolder1_grvAccounts_ctl02_LinkButton1" class="responsive-accordion-head fi-dollar-bill smalltext" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$grvAccounts$ctl02$LinkButton1','')">3022098010 - CLASSIC SAVINGS</a>
+                                                    </td>
+		</tr>
+	</tbody></table>
+</div>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="six columns">
+                        <div class="panel border no-bottom-margin  red-grad no-border " style="padding: 2px; padding-left: 9px;">
+                            <p class=" no-bottom-margin " style="font-size: 22px; color: #fff;">
+                                <span id="ctl00_ContentPlaceHolder1_lblAccountNo">3022098010</span>
+                            </p><p>
+                        </p></div>
+
+                        <table class="account-table full-width">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50%;">ACCOUNT NAME</th>
+                                    <th style="width: 50%;">ACCOUNT DESCRIPTION</th>
+                                </tr>
+                            </thead>
+                            <tbody style="background-color: #fff8e6">
+                                <tr>
+                                    <td>
+                                        <span id="ctl00_ContentPlaceHolder1_lblAccountName">ADESHINA OLAWALE ABDUL-GANIYU</span>
+                                    </td>
+                                    <td>
+                                        <span id="ctl00_ContentPlaceHolder1_lblAccountDesc">CLASSIC SAVINGS</span>
+                                    </td>
+                                </tr>
+                                </tbody><thead>
+                                    <tr>
+                                        <th width="200px">CURRENCY</th>
+                                        <th>AVAILABLE BALANCE</th>
+                                    </tr>
+                                </thead>
+                                <tbody><tr style="background-color: #fff8e6">
+                                    <td>
+                                        <span id="ctl00_ContentPlaceHolder1_lblCurrency">NGN</span>
+                                    </td>
+                                    <td>
+                                        <span id="ctl00_ContentPlaceHolder1_lblAvailableBal">-161.25</span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                                
+                </div>
+				
+				
+				
+        </div>
+
+        <div class="row hide-for-small">
+            <div class="twelve columns small-margin-top">
+			                                <div class="row curve border-strong grey-bggrey2 collapse">
+                      <img src="wall_files/FCMB-FCY-Edit-i.png" style="border-radius:3px;" class="border-strong">
+
+                </div>
+                <div class="row curve border-strong grey-bggrey2 collapse">
+                      <img src="wall_files/Inest%20asset%20refresh.jpg" style="border-radius:3px;" class="border-strong">
+                      <input type="hidden" name="ctl00$ContentPlaceHolder1$hdfAcid" id="ctl00_ContentPlaceHolder1_hdfAcid">
+                    
+                </div>
+            </div>
+        </div>
+
+        
+                <div class="row hide-for-small hide-for-medium">
+                    <div class="twelve columns  margin-bottom margin-top-small">
+                        <div class="panel grey-bggrey curve small-padding">
+                            <div class="row">
+                                <div class="three columns">
+                                    <img src="wall_files/home_002.png">
+                                    <ul class="list-things">
+                                        <li>Where to find a branch</li>
+                                        <li>Where to find ATM</li>
+
+                                    </ul>
+                                </div>
+
+                                <div class="three columns">
+                                    <img src="wall_files/mouse.png" style="margin-top: 10px;">
+                                    <ul class="list-things">
+                                        <li>Open an account online</li>
+                                        <li>Make payment online</li>
+                                        <li><a class=" writefont fancybox" href="#eStatement">E-statements</a>
+                                            </li>
+                                        <li>How to use the internet banking</li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="three columns">
+                                    <img src="wall_files/phone.png">
+                                    <ul class="list-things">
+                                        <li><a class=" writefont fancybox" href="#telephoneBanking">Our telephone banking services</a>
+                                            
+                                        </li><li><a href="mailto:customerservice@fcmb.com">Send us feedback by mail</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="three columns">
+                                    <img src="wall_files/pad.png">
+                                    <ul class="list-things">
+                                        
+                                        <li><a class=" writefont fancybox" href="#onlineSecurity">How to secure your account</a>
+                                    </li></ul>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="eStatement" style="display: none; width: 600px;">
+                    <h2 style="color: #5c2684">e-Statement</h2>
+                    <hr>
+                    <p>
+                        You can access your accumulated statements going
+ back as far as 36 months. 
+                                   To do this, simply login to internet 
+banking, select the prefer dates you would like to view statements for, 
+                                   chose the format and send it to your 
+registered email address. Your statement will be sent to you within 
+minutes
+                    </p>
+                </div>
+                <div id="telephoneBanking" style="display: none; width: 600px;">
+                    <h2 style="color: #5c2684">Telephone Banking</h2>
+                    <hr>
+                    <p>
+                        Telephone banking is a service provided by FCMB which allows its 
+                                customers to perform some basic banking transactions over the telephone.
+                    </p>
+                    <br>
+                    <p>
+                        FCMB telephone banking service uses an automated phone answering 
+                                system with phone keypad response. To ensure security, the customer must
+                                 first authenticate through a numeric PIN. This service offers virtually
+                                 all the features of an automated teller machine: account balance 
+                                information and list of latest transactions, electronic bill payments 
+                                and funds transfers between a customer's accounts.
+                    </p>
+                    <br>
+                    <p>FCMB Telephone Banking allows you to perform the following services:</p>
+                    <ul>
+                        <li>Account Balance request</li>
+                        <li>Requests –</li>
+                        <ul>
+                            <li>Cheque Book</li>
+                            <li>ATM Card</li>
+                            <li>ATM Card hotlist</li>
+                        </ul>
+                        <li>Last 5 transactions history of your account</li>
+                        <li>Funds transfer (within FCMB only for now)</li>
+                        <li>DSTV payment</li>
+                    </ul>
+                    <br>
+                    <p>To get registered, simply follow the steps below:</p>
+                    <ul>
+                        <li>Step 1: Dial Contact Centre on 07003290000 or 012798800</li>
+                        <li>Step 2: Follow the voice prompt; Press 1 for Telephone Banking</li>
+                        <li>Step 3: Follow the voice prompt; then press 2 to register (for new users).</li>
+                    </ul>
+                    <br>
+                    <p>Ensure the following information is readily available whilst registering:</p>
+                    <ul>
+                        <li>Your Customer ID (this is the 1st seven digits of your account number e.g. xxxxxxx017) or Your Debit Card Number</li>
+                        <li>Your registered year of birth (e.g. 1982)</li>
+                        <li>The last 4 digits of any of your registered GSM telephone number (e.g. 0803333xxxx)</li>
+                    </ul>
+                    <br>
+                    <p>
+                        Once the above details are auto validated, a PIN will be sent to the 
+                                registered telephone with the last 4 digits used above. Please go back 
+                                to Step 1 &amp; 2 above; then Press 1 to login. Remember, this service 
+                                is available 24/7, including weekends and public holidays.
+                    </p>
+                </div>
+
+
+                <div id="onlineSecurity" style="display: none; width: 600px;">
+
+
+                    <h2 style="color: #5c2684">Online Security </h2>
+                    <hr>
+
+                    <p>To guide against unauthorized access to your 
+account, it is important that you protect your details securely. 
+Consequently, The unavoidable fact remains; you are your best protection
+ while conducting financial transactions online. As a result, we advice 
+that you kindly follow the online security tips below when transacting 
+on the FCMB Online Platform.</p>
+
+                    <br>
+
+                    <ul>
+                        <li>A password should be used when accessing 
+your account online. Your password should be known to you only and 
+should change regularly. Avoid using birthdates, numbers or words that 
+may be easy for others to guess.</li>
+                        <li>Always be careful of how and to whom you 
+give your password. Keep your password private. Upon completion of your 
+transactions, ensure you sign out of the online banking platform, clear 
+your cache and close your browser. Often, it is easy to forget to sign 
+out of an online banking session.</li>
+                        <br>
+                        <li>Never disclose, share or provide your 
+password to anyone. Please be informed that on no condition would FCMB 
+request for your password. Please do not reveal your personal 
+verification question answers to anyone or disclose them in any email. 
+Giving your password verification answers to another person or company, 
+places your finances and privacy at risk.</li>
+                        <li>If you do use a public access computer, such
+ as an Internet café or public library, ensure to change your password 
+after completing your session. If in doubt, call the contact centre for a
+ password reset and complete de-activation of your profile until you are
+ convinced your account is safe from unnecessary access.</li>
+                    </ul>
+                    <p class="smalltext">We invite you to take advantage of these safety tips when performing your online banking transactions.</p>
+                    <br>
+                    <p class="smalltext">For more information, please call our Contact Centre on 07003290000 or 01-2798800.Alternatively you can send an email to <a href="mailto:customerservice@fcmb.com">customerservice@fcmb.com</a> or visit <a href="https://www.fcmb.com/">www.fcmb.com</a></p>
+
+                </div>
+
+
+
+        <input type="hidden" id="_ispostback" value="False"> 
+		<div class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <h5>Contact Account Officer</h5>
+        <div class="row">
+            <div class="twelve meduim-12 small-12 columns">
+                <input name="ctl00$ContentPlaceHolder1$txtAOSubject" type="text" maxlength="100" id="ctl00_ContentPlaceHolder1_txtAOSubject" placeholder="Subject">
+                <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator10" style="color:Red;visibility:hidden;">*</span>
+                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$RequiredFieldValidator10_ValidatorCalloutExtender_ClientState" id="ctl00_ContentPlaceHolder1_RequiredFieldValidator10_ValidatorCalloutExtender_ClientState">
+                <br>&nbsp;
+                <textarea name="ctl00$ContentPlaceHolder1$txtAOMessage" rows="15" cols="20" id="ctl00_ContentPlaceHolder1_txtAOMessage" placeholder="Enter message here..."></textarea>
+                <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator1" style="color:Red;visibility:hidden;">*</span>
+                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$ValidatorCalloutExtender1_ClientState" id="ctl00_ContentPlaceHolder1_ValidatorCalloutExtender1_ClientState">
+            </div>
+            <div class="twelve meduim-12 small-12 columns" style="margin-top:10px">
+                <button id="btnSendToAO" type="button" validationgroup="AONotification" style="width:100%; font-size:14px;" class="button no-bottom-margin red-grad3"><i class="fa fa-mail-forward"></i> Send</button>    
+                <input type="submit" name="ctl00$ContentPlaceHolder1$btnhdnSendToAO" value="" id="ctl00_ContentPlaceHolder1_btnhdnSendToAO" style="display:none;">           
+            </div>
+        </div>
+        <p style="text-align:center;padding-top:5px;"><a data-popup-close="popup-1" href="#">Close</a></p>
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>
+
+        <div class="popup" data-popup="popup-2">
+    <div class="popup-inner">
+        <h5>Log Your Complaint Below</h5>
+        <div class="row">
+            <div class="twelve meduim-12 small-12 columns">
+                <input name="ctl00$ContentPlaceHolder1$txtComplaintSubject" type="text" maxlength="100" id="ctl00_ContentPlaceHolder1_txtComplaintSubject" placeholder="Subject">
+                            <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator2" style="color:Red;visibility:hidden;">*</span>
+                            <input type="hidden" name="ctl00$ContentPlaceHolder1$ValidatorCalloutExtender2_ClientState" id="ctl00_ContentPlaceHolder1_ValidatorCalloutExtender2_ClientState">
+
+                <textarea name="ctl00$ContentPlaceHolder1$txtComplaint" rows="15" cols="20" id="ctl00_ContentPlaceHolder1_txtComplaint" placeholder="Enter message here..."></textarea>
+                <span id="ctl00_ContentPlaceHolder1_RequiredFieldValidator3" style="color:Red;visibility:hidden;">*</span>
+                                    <input type="hidden" name="ctl00$ContentPlaceHolder1$ValidatorCalloutExtender3_ClientState" id="ctl00_ContentPlaceHolder1_ValidatorCalloutExtender3_ClientState">
+            </div>
+            <div class="twelve meduim-12 small-12 columns" style="margin-top:10px">
+                <button id="btnSendComplaint" type="button" validationgroup="LogComplaint" style="width:100%; font-size:14px;" class="button no-bottom-margin red-grad3"><i class="fa fa-mail-forward"></i> Send</button>    
+                <input type="submit" name="ctl00$ContentPlaceHolder1$btnhdnSendComplaint" value="" id="ctl00_ContentPlaceHolder1_btnhdnSendComplaint" style="display:none;">           
+            </div>
+        </div>
+        <p style="text-align:center;padding-top:5px;"><a data-popup-close="popup-2" href="#">Close</a></p>
+        <a class="popup-close" data-popup-close="popup-2" href="#">x</a>
+    </div>
+</div>
+
+ 
+    </div>
+
+
+    <script type="text/javascript">
+        //$.noConflict();
+        $(document).ready(function () {
+
+            function isPostBack() { //function to check if page is a postback-ed one
+                return document.getElementById('_ispostback').value == 'True';
+            }
+            if (isPostBack()) {
+                return;
+            }
+
+            $(".fancybox").fancybox();
+
+            $.fancybox.open(
+                [
+				
+				
+				
+				
+				{
+				        href: 'images/Advert/Fraud_771x589.jpg'
+					
+					},
+				
+				{
+				        href: 'images/Advert/Verve Good life.png'
+					
+					},
+												
+				{
+				        href: 'images/Whatsapp chatbot copy.jpg'
+					
+					},
+								
+										
+				
+                ],
+                    {
+                        "loop": true,
+                        "autoPlay": true,
+                        "playSpeed": 6000,
+                        "nextSpeed": 500,
+                        "prevSpeed": 500,
+                        "openSpeed": 500,
+                        "speedOut": 500,
+                        "openEffect": "elastic",
+                        "closeEffect": "elastic",
+                        "nextEffect": "elastic",
+                        "prevEffect": "elastic",
+
+                        //helpers: {
+
+                        //thumbs: {
+                        //    width: 75,
+                        //    height: 50,
+                        //    source: function (item) {
+                        //        return item.href.replace('images/Advert/fcmbairtime.jpg', 'images/Advert/fcmbelectricity7.jpg');
+                        //    }
+                        //}
+                        //}
+
+                    });
+           //$(document).foundation();
+        });
+		
+		$(function () {
+            $("#btnSendToAO").click(function (e) {
+                if (typeof (Page_ClientValidate) == 'function') {
+                    Page_ClientValidate("AONotification");
+                }
+
+                if (Page_IsValid) {
+                    $(this).html("<span><i class='fa fa-refresh fa-spin'></i>&nbsp;<span class='animated fadeIn infinite'>Please Wait...</span></span>");
+                    $(this).attr("disabled", "disabled");
+                    document.getElementById('ctl00_ContentPlaceHolder1_btnhdnSendToAO').click();
+                }
+            });
+
+            $("#btnSendComplaint").click(function (e) {
+                if (typeof (Page_ClientValidate) == 'function') {
+                    Page_ClientValidate("LogComplaint");
+                }
+
+                if (Page_IsValid) {
+                    $(this).html("<span><i class='fa fa-refresh fa-spin'></i>&nbsp;<span class='animated fadeIn infinite'>Please Wait...</span></span>");
+                    $(this).attr("disabled", "disabled");
+                    document.getElementById('ctl00_ContentPlaceHolder1_btnhdnSendComplaint').click();
+                }
+              });
+			  
+            //----- OPEN
+            $('[data-popup-open]').on('click', function (e) {
+                var targeted_popup_class = jQuery(this).attr('data-popup-open');
+                $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+                
+                e.preventDefault();
+            });
+
+            //----- CLOSE
+            $('[data-popup-close]').on('click', function (e) {
+                var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+                e.preventDefault();
+            });
+        });
+    </script>
+
+
+
+
+                <!--grey panel with contents ends-->
+                <div class="row small-padding" style="margin-top: 30px; line-height: 20px;">
+                    <div class="twelve columns itallics"><span style="font-weight: bold">For
+ any suspected unauthorised access to your account, please call our 24/7
+ Contact Centre now on 07003290000 or 01-2798800 or send an email to 
+frauddesk@fcmb.com immediately.</span></div>
+                </div>
+
+                <div class="row small-padding">
+                    <div class="twelve columns">
+                        <img src="wall_files/ad.jpg" width="822" height="133">
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <!--right content ends-->
+
+
+
+        <!-- ############################## END HERE ################ -->
+
+        <!--main content ends-->
+
+        <!-- footer start-->
+        <div class="contain-to-grid blacknew">
+            <div class="row collapse">
+                <div class="twelve columns " style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 20px;">
+                    This site ensures that all information sent to us 
+via the World Wide Web are encrypted. You can confirm the information 
+provided by our certificate issuer by clicking on the padlock icon on 
+your address bar.
+    <br>
+                    <span id="ctl00_lblYear">2023</span> © First City Monument Bank Limited. A Member of FCMB Group Plc.
+                </div>
+            </div>
+        </div>
+        <!-- footer ends-->
+        <!--wrapper ends-->
+		
+		<!--For Time Out Pop Up-->
+		   <div class="popup" data-popup="popup-exp">
+            <div class="popup-inner-small">
+
+                <div style="width: 100%; background: #ffffff url('../images/timeout-icon.png') no-repeat 0px 10px;">
+                    <hr>
+                    <div style="margin-left: 60px; line-height: 17px; height: 30px;">
+                        <b id="session-notification">Sorry, your session has expired due to inactivity.</b>
+                    </div>
+                    <hr>
+                    <div id="session-not">
+                        <a id="ctl00_lnkLogOut" href="javascript:__doPostBack('ctl00$lnkLogOut','')"><i class="fa fa-sign-out"></i>&nbsp;Logout</a>
+
+                        <a id="ctl00_lnkContinue" href="javascript:__doPostBack('ctl00$lnkContinue','')" style="float: right;"><i class="fa fa-sign-in"></i>&nbsp;Continue</a>
+                    </div>
+                    <div id="session-exp">
+                        <a id="ctl00_btnLogout" href="javascript:__doPostBack('ctl00$btnLogout','')"><i class="fa fa-sign-out"></i>&nbsp;Click here</a>
+                        to Login
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		   <div id="tt">
+        </div>
+
+        <!--------------------------------------- Start of Secured Communication -------------------------------------->
+
+        
+
+        <div class="popup" data-popup="popup-4">
+            <div class="popup-inner">
+                <h5>Select secured mail subject</h5>
+                <div class="twelve meduim-12 small-12 columns">
+                    <select name="ctl00$CommunicationModules" id="ctl00_CommunicationModules" class="greyselect" style="margin-bottom: 10px;">
+	<option selected="selected" value="--Select--">--Select--</option>
+	<option value="4">Request for Limit Increase/Decrease on Debit Card</option>
+	<option value="5">Customer Profile Update</option>
+	<option value="6">Mandate Change</option>
+	<option value="7">FX Fund Transfer Enquiry</option>
+	<option value="8">Letter of Reference</option>
+	<option value="9">Treasury Bill Request / Enquiries</option>
+	<option value="10">Request for Token</option>
+	<option value="11">Fixed Deposit Enquiry/Liquidate</option>
+	<option value="12">Bank Draft</option>
+	<option value="13">Request to set Travel Notification</option>
+	<option value="14">Inquiries on Standing Instruction</option>
+	<option value="15">Contact Account Officer</option>
+	<option value="17">Transfer Requests / Enquiries</option>
+	<option value="18">Request for Account Unfreeze</option>
+	<option value="20">CONFIRMATION OF TRANSFER</option>
+	<option value="21">email</option>
+	<option value="22">Contact an Account Officer</option>
+	<option value="24">Log complaints</option>
+
+</select>
+
+
+                    <select name="ctl00$SecuredMailAccounts" id="ctl00_SecuredMailAccounts" class="greyselect" datakeynames="AccountSummary" style="margin-bottom: 10px;">
+	<option value="--Select account for this request--" selected="selected">--Select account for this request--</option>
+	<option value="3022098010">NGN -161.25 -- 3022098010 -- CLASSIC SAVINGS</option>
+
+</select>
+
+
+                    <textarea name="ctl00$txtSecuredCommunicationMsg" rows="15" cols="20" id="ctl00_txtSecuredCommunicationMsg" placeholder="Enter message here..."></textarea>
+                    <span id="ctl00_scRequiredFieldValidator2" style="color:Red;visibility:hidden;">* required field</span>
+                    <input type="hidden" name="ctl00$scValidatorCalloutExtender2_ClientState" id="ctl00_scValidatorCalloutExtender2_ClientState">
+
+                    <input name="ctl00$txtTransactionPassword" type="password" maxlength="100" id="ctl00_txtTransactionPassword" placeholder="Transaction Password">
+                    <span id="ctl00_scRequiredFieldValidatortp" style="color:Red;visibility:hidden;">* required field</span>
+                    <input type="hidden" name="ctl00$ValidatorCalloutExtender7_ClientState" id="ctl00_ValidatorCalloutExtender7_ClientState">
+
+
+                </div>
+                <div class="twelve meduim-12 small-12 columns" style="margin-top: 10px">
+                    <button id="btnSecuredCommunication" type="button" validationgroup="SecuredCommunication" style="width: 100%; font-size: 14px;" class="button no-bottom-margin red-grad3"><i class="fa fa-mail-forward"></i>Send</button>
+                    <input type="submit" name="ctl00$buttonSecuredCommunication" value="" onclick="return confirm('Do you want to proceed to send message?');" id="ctl00_buttonSecuredCommunication" style="display: none;">
+                </div>
+                <p style="text-align: center; padding-top: 5px;"><a data-popup-close="popup-4" href="#">Close</a></p>
+                <a class="popup-close" data-popup-close="popup-4" href="#">x</a>
+            </div>
+        </div>
+
+        <!----------------------------------------- End of Secured Communication ----------------------------------------->
+
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator10"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator1"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator2"), document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator3"), document.getElementById("ctl00_scRequiredFieldValidator2"), document.getElementById("ctl00_scRequiredFieldValidatortp"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator10 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator10"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator10");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.controltovalidate = "ctl00_ContentPlaceHolder1_txtAOSubject";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.errormessage = "Kindly Enter The Subject Here.";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.validationGroup = "AONotification";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator10.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator1 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator1"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator1");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.controltovalidate = "ctl00_ContentPlaceHolder1_txtAOMessage";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.errormessage = "Kindly Enter The Message Here.";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.validationGroup = "AONotification";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator1.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator2 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator2"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator2");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.controltovalidate = "ctl00_ContentPlaceHolder1_txtComplaintSubject";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.errormessage = "Kindly Enter The Subject Here.";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.validationGroup = "LogComplaint";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator2.initialvalue = "";
+var ctl00_ContentPlaceHolder1_RequiredFieldValidator3 = document.all ? document.all["ctl00_ContentPlaceHolder1_RequiredFieldValidator3"] : document.getElementById("ctl00_ContentPlaceHolder1_RequiredFieldValidator3");
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.controltovalidate = "ctl00_ContentPlaceHolder1_txtComplaint";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.errormessage = "Kindly Enter The Message Here.";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.validationGroup = "LogComplaint";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ContentPlaceHolder1_RequiredFieldValidator3.initialvalue = "";
+var ctl00_scRequiredFieldValidator2 = document.all ? document.all["ctl00_scRequiredFieldValidator2"] : document.getElementById("ctl00_scRequiredFieldValidator2");
+ctl00_scRequiredFieldValidator2.controltovalidate = "ctl00_txtSecuredCommunicationMsg";
+ctl00_scRequiredFieldValidator2.errormessage = "Kindly Enter The Message Here.";
+ctl00_scRequiredFieldValidator2.validationGroup = "SecuredCommunication";
+ctl00_scRequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_scRequiredFieldValidator2.initialvalue = "";
+var ctl00_scRequiredFieldValidatortp = document.all ? document.all["ctl00_scRequiredFieldValidatortp"] : document.getElementById("ctl00_scRequiredFieldValidatortp");
+ctl00_scRequiredFieldValidatortp.controltovalidate = "ctl00_txtTransactionPassword";
+ctl00_scRequiredFieldValidatortp.errormessage = "Kindly Enter Your Transaction Password Here.";
+ctl00_scRequiredFieldValidatortp.validationGroup = "SecuredCommunication";
+ctl00_scRequiredFieldValidatortp.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_scRequiredFieldValidatortp.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator10').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator10'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ValidatorCalloutBehavior, {"ClientStateFieldID":"ctl00_ContentPlaceHolder1_RequiredFieldValidator10_ValidatorCalloutExtender_ClientState","closeImageUrl":"/WebResource.axd?d=f45hJ7Tf_VhCa4fir-znCNXhvFZF-4Lrnfmuzw5uUeV_4uXBX5jlUNB8ER0A-bgZllHEmVlKElWHhCnRFzSC9CV9ywXEMKwC3yeBk-nvgvGODaACIfuf988jAdRTzeyi7scZ7tcDKAa9xt3QRyx0rxdAUVo1\u0026t=638030747400000000","id":"ctl00_ContentPlaceHolder1_RequiredFieldValidator10_ValidatorCalloutExtender","warningIconImageUrl":"/WebResource.axd?d=JkvHXUQJFyCNhTf5rVl8xsGxL-KUkcIme2gSL90Hc7xxSDyW0e-FZBZcdk-bCGCPnLJJlXrr6vLFWsowr3sGIy0BIgaMId9QBG-SGz8omgmWHZ0CF7aWARdYHcYox7snCUkT_UbWDDym4_Wy_l9894iCbi01\u0026t=638030747400000000"}, null, null, $get("ctl00_ContentPlaceHolder1_RequiredFieldValidator10"));
+});
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator1'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ValidatorCalloutBehavior, {"ClientStateFieldID":"ctl00_ContentPlaceHolder1_ValidatorCalloutExtender1_ClientState","closeImageUrl":"/WebResource.axd?d=f45hJ7Tf_VhCa4fir-znCNXhvFZF-4Lrnfmuzw5uUeV_4uXBX5jlUNB8ER0A-bgZllHEmVlKElWHhCnRFzSC9CV9ywXEMKwC3yeBk-nvgvGODaACIfuf988jAdRTzeyi7scZ7tcDKAa9xt3QRyx0rxdAUVo1\u0026t=638030747400000000","id":"ctl00_ContentPlaceHolder1_ValidatorCalloutExtender1","warningIconImageUrl":"/WebResource.axd?d=JkvHXUQJFyCNhTf5rVl8xsGxL-KUkcIme2gSL90Hc7xxSDyW0e-FZBZcdk-bCGCPnLJJlXrr6vLFWsowr3sGIy0BIgaMId9QBG-SGz8omgmWHZ0CF7aWARdYHcYox7snCUkT_UbWDDym4_Wy_l9894iCbi01\u0026t=638030747400000000"}, null, null, $get("ctl00_ContentPlaceHolder1_RequiredFieldValidator1"));
+});
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator2'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ValidatorCalloutBehavior, {"ClientStateFieldID":"ctl00_ContentPlaceHolder1_ValidatorCalloutExtender2_ClientState","closeImageUrl":"/WebResource.axd?d=f45hJ7Tf_VhCa4fir-znCNXhvFZF-4Lrnfmuzw5uUeV_4uXBX5jlUNB8ER0A-bgZllHEmVlKElWHhCnRFzSC9CV9ywXEMKwC3yeBk-nvgvGODaACIfuf988jAdRTzeyi7scZ7tcDKAa9xt3QRyx0rxdAUVo1\u0026t=638030747400000000","id":"ctl00_ContentPlaceHolder1_ValidatorCalloutExtender2","warningIconImageUrl":"/WebResource.axd?d=JkvHXUQJFyCNhTf5rVl8xsGxL-KUkcIme2gSL90Hc7xxSDyW0e-FZBZcdk-bCGCPnLJJlXrr6vLFWsowr3sGIy0BIgaMId9QBG-SGz8omgmWHZ0CF7aWARdYHcYox7snCUkT_UbWDDym4_Wy_l9894iCbi01\u0026t=638030747400000000"}, null, null, $get("ctl00_ContentPlaceHolder1_RequiredFieldValidator2"));
+});
+
+document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ContentPlaceHolder1_RequiredFieldValidator3'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ValidatorCalloutBehavior, {"ClientStateFieldID":"ctl00_ContentPlaceHolder1_ValidatorCalloutExtender3_ClientState","closeImageUrl":"/WebResource.axd?d=f45hJ7Tf_VhCa4fir-znCNXhvFZF-4Lrnfmuzw5uUeV_4uXBX5jlUNB8ER0A-bgZllHEmVlKElWHhCnRFzSC9CV9ywXEMKwC3yeBk-nvgvGODaACIfuf988jAdRTzeyi7scZ7tcDKAa9xt3QRyx0rxdAUVo1\u0026t=638030747400000000","id":"ctl00_ContentPlaceHolder1_ValidatorCalloutExtender3","warningIconImageUrl":"/WebResource.axd?d=JkvHXUQJFyCNhTf5rVl8xsGxL-KUkcIme2gSL90Hc7xxSDyW0e-FZBZcdk-bCGCPnLJJlXrr6vLFWsowr3sGIy0BIgaMId9QBG-SGz8omgmWHZ0CF7aWARdYHcYox7snCUkT_UbWDDym4_Wy_l9894iCbi01\u0026t=638030747400000000"}, null, null, $get("ctl00_ContentPlaceHolder1_RequiredFieldValidator3"));
+});
+
+document.getElementById('ctl00_scRequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_scRequiredFieldValidator2'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ValidatorCalloutBehavior, {"ClientStateFieldID":"ctl00_scValidatorCalloutExtender2_ClientState","closeImageUrl":"/WebResource.axd?d=f45hJ7Tf_VhCa4fir-znCNXhvFZF-4Lrnfmuzw5uUeV_4uXBX5jlUNB8ER0A-bgZllHEmVlKElWHhCnRFzSC9CV9ywXEMKwC3yeBk-nvgvGODaACIfuf988jAdRTzeyi7scZ7tcDKAa9xt3QRyx0rxdAUVo1\u0026t=638030747400000000","id":"ctl00_scValidatorCalloutExtender2","warningIconImageUrl":"/WebResource.axd?d=JkvHXUQJFyCNhTf5rVl8xsGxL-KUkcIme2gSL90Hc7xxSDyW0e-FZBZcdk-bCGCPnLJJlXrr6vLFWsowr3sGIy0BIgaMId9QBG-SGz8omgmWHZ0CF7aWARdYHcYox7snCUkT_UbWDDym4_Wy_l9894iCbi01\u0026t=638030747400000000"}, null, null, $get("ctl00_scRequiredFieldValidator2"));
+});
+
+document.getElementById('ctl00_scRequiredFieldValidatortp').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_scRequiredFieldValidatortp'));
+}
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ValidatorCalloutBehavior, {"ClientStateFieldID":"ctl00_ValidatorCalloutExtender7_ClientState","closeImageUrl":"/WebResource.axd?d=f45hJ7Tf_VhCa4fir-znCNXhvFZF-4Lrnfmuzw5uUeV_4uXBX5jlUNB8ER0A-bgZllHEmVlKElWHhCnRFzSC9CV9ywXEMKwC3yeBk-nvgvGODaACIfuf988jAdRTzeyi7scZ7tcDKAa9xt3QRyx0rxdAUVo1\u0026t=638030747400000000","id":"ctl00_ValidatorCalloutExtender7","warningIconImageUrl":"/WebResource.axd?d=JkvHXUQJFyCNhTf5rVl8xsGxL-KUkcIme2gSL90Hc7xxSDyW0e-FZBZcdk-bCGCPnLJJlXrr6vLFWsowr3sGIy0BIgaMId9QBG-SGz8omgmWHZ0CF7aWARdYHcYox7snCUkT_UbWDDym4_Wy_l9894iCbi01\u0026t=638030747400000000"}, null, null, $get("ctl00_scRequiredFieldValidatortp"));
+});
+//]]>
+</script>
+</form>
+
+    <!-- Included JS Files (Compressed) -->
+    <script src="wall_files/smoothscroll.min.js" type="text/javascript"></script>
+    <!--<script src="/fcmb_js/backbone.js" type="text/javascript"></script>-->
+    <script src="wall_files/responsive-accordion.min.js" type="text/javascript"></script>
+	<script src="wall_files/AuthCodeSMSCharge.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            window.prettyPrint && prettyPrint();
+            $('#dp1').fdatepicker({
+                format: 'mm-dd-yyyy'
+            });
+            $('#dp2').fdatepicker({
+                closeButton: true
+            });
+            $('#dp3').fdatepicker();
+            $('#dp4').fdatepicker();
+            $('#dp-margin').fdatepicker();
+            $('#dpMonths').fdatepicker();
+            var startDate = new Date(2014, 1, 20);
+            var endDate = new Date(2015, 1, 25);
+
+
+            // implementation of disabled form fields
+            var nowTemp = new Date();
+            var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+            var checkin = $('#dpd1').fdatepicker({
+                onRender: function (date) {
+                    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+                }
+            }).on('changeDate', function (ev) {
+                if (ev.date.valueOf() > checkout.date.valueOf()) {
+                    var newDate = new Date(ev.date)
+                    newDate.setDate(newDate.getDate() + 1);
+                    checkout.update(newDate);
+                }
+                checkin.hide();
+                $('#dpd2')[0].focus();
+            }).data('datepicker');
+            var checkout = $('#dpd2').fdatepicker({
+                onRender: function (date) {
+                    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+                }
+            }).on('changeDate', function (ev) {
+                checkout.hide();
+            }).data('datepicker');
+        });
+    </script>
+	 <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date();
+        var sessionTimeout = 5;
+        countDownDate.setMinutes(countDownDate.getMinutes() + sessionTimeout);
+
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now an the count down date
+            var distance = countDownDate.getTime() - now;
+
+            // Time calculations for days, hours, minutes and seconds    
+
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="CountDown"
+            if (minutes < 1) {
+                //window.setTimeout(function () {
+                //    var targeted_popup_class = 'divTimeout-Pop';
+                //    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+                //}, 1000);
+                //document.getElementById("CountDown").innerHTML = "Your Session will timeout In " + minutes + "m " + seconds + "s Due To Inactivity.";
+
+                var targeted_popup_class = 'popup-exp';
+                $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+                $('#session-not').fadeIn();
+                $('#session-exp').fadeOut();
+                document.getElementById("session-notification").innerHTML = "Your session will timeout in <b style=color:red;>" + minutes + "m " + seconds + "s</b> due to inactivity.";
+            }
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                // document.getElementById("CountDown").innerHTML = "Your Session has timed out due to inactiviy, Please login again.";
+                document.getElementById("session-notification").innerHTML = "Sorry, your session has expired due to inactivity.";
+                $('#session-not').fadeOut();
+                $('#session-exp').fadeIn();
+            }
+        }, 1000);
+    </script>
+<script type="text/javascript">
+        $(function () {
+
+            $("#btnSecuredCommunication").click(function (e) {
+                if (typeof (Page_ClientValidate) == 'function') {
+                    Page_ClientValidate("SecuredCommunication");
+                }
+
+                if (Page_IsValid) {
+                    $(this).html("<span><i class='fa fa-refresh fa-spin'></i>&nbsp;<span class='animated fadeIn infinite'>Please Wait...</span></span>");
+                    $(this).attr("disabled", "disabled");
+                    document.getElementById('ctl00_buttonSecuredCommunication').click();
+                }
+            });
+
+
+            //----- OPEN
+            $('[data-popup-open]').on('click', function (e) {
+                var targeted_popup_class = jQuery(this).attr('data-popup-open');
+                $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+                e.preventDefault();
+            });
+
+            //----- CLOSE
+            $('[data-popup-close]').on('click', function (e) {
+                var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+                e.preventDefault();
+            });
+        });
+
+
+    </script>
+
+
+</body></html>

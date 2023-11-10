@@ -1,0 +1,48 @@
+﻿/*.button
+{
+    background-color:#C7A578;
+	color: #feffff;
+	font:verdana;
+	font-size:11px;
+	border : 1px;
+	padding:5px 20px;
+	background-image:url(../images/login.png) repeat;
+}
+
+.dropDown
+{
+	 font-family:verdana; 
+	 font-size:11px;
+	 width:155px;
+}
+.textbox
+{	 
+	 font-family:verdana; 
+	 font-size:11px;
+	 width:150px;
+	 border-color:#CCB27F;
+	 border-width:1px;
+}
+.radioButton
+{
+    font-family :Verdana;
+    font-size :12px;
+    font-weight:bold;
+    
+}
+
+
+.hyperlink
+{	 
+	 font-family:verdana; 
+	 font-size:11px;
+}
+/*.ind-button
+{
+    border-radius:5px;
+    border:1px solid #d4b893; 
+    background:url(../images/login.png) repeat; 
+    padding:5px 20px;
+    color:#feffff;
+
+}*/
